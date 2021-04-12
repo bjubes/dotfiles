@@ -1,0 +1,4 @@
+echo "Destroying all containers"
+docker rm -f $(docker ps -a -q)
+echo "Destroying all volumes"
+docker volume rm $(docker volume ls -q)
