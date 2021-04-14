@@ -19,8 +19,8 @@ set colorcolumn=80
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 " run :PlugInstall to get plugins "
-call plug#begin('~/.vim/plugged')
-call plug#end()
+"call plug#begin('~/.vim/plugged')
+"call plug#end()
 
 set background=dark
 
