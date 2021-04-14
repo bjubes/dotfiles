@@ -19,8 +19,10 @@ alias pip=pip3
 alias python=python3
 alias open=wsl-open
 alias c=batcat
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
-alias cdh='cd /mnt/c/Users/brian'
+export WIN="/mnt/c/Users/brian"
+alias cdh='cd $WIN'
 alias cduas='cd /mnt/c/Users/brian/uas'
 
 PATH=$PATH:~/bin:~/.local/bin
