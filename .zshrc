@@ -39,6 +39,7 @@ alias oslman='docker-compose -f local.yml run --rm django python manage.py'
 alias oslup='docker-compose -f local.yml up'
 alias lint='pre-commit run --show-diff-on-failure --color=always --all-files'
 
+touch $HOME/.vimbuffer
 
 function search() {
     grep -Ril "$@" .

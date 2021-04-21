@@ -29,3 +29,9 @@ set background=dark
 cnoremap sudow w !sudo tee % >/dev/null
 
 
+" copy (write) highlighted text to ~/.vimbuffer
+vmap <C-c> y:new ~/.vimbuffer<CR>VGp:x<CR> \| :!cat ~/.vimbuffer \| clip.exe <CR><CR>
+" paste from buffer
+omap <C-v> :r ~/.vimbuffer<CR>
+
+
