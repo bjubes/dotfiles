@@ -1,7 +1,7 @@
 export ZSH="/home/brian/.oh-my-zsh"
 ZSH_THEME="agnoster"
 
-plugins=(git)
+plugins=(git gh)
 source $ZSH/oh-my-zsh.sh
 
 #vim mode with esc
@@ -32,6 +32,10 @@ EDITOR=vim
 if [ "$(pwd)" = '/mnt/c/Users/brian' ]; then
     cd ~
 fi
+
+# use ctrl+e to edit command in vim buffer
+autoload edit-command-line; zle -N edit-command-line
+bindkey '^e' edit-command-line
 
 
 alias osl='docker-compose -f local.yml run --rm django'
