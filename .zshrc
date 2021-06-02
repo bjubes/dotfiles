@@ -37,6 +37,17 @@ fi
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
+# Use lf to switch directories and bind it to ctrl-o
+lfcd () {
+    tmp="$(mktemp)"
+    lf -last-dir-path="$tmp" "$@"
+    if [ -f "$tmp" ]; then
+        dir="$(cat "$tmp")"
+        rm -f "$tmp"
+        [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
+    fi
+}
+bindkey -s '^o' 'lfcd\n'
 
 alias osl='docker-compose -f local.yml run --rm django'
 alias oslman='docker-compose -f local.yml run --rm django python manage.py'
@@ -48,3 +59,4 @@ touch $HOME/.vimbuffer
 function search() {
     grep -Ril "$@" .
 }
+
