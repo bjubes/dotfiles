@@ -20,6 +20,7 @@ alias python=python3
 alias open=wsl-open
 alias c=batcat
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias dl='curl -LJO'
 
 export WIN="/mnt/c/Users/brian"
 alias cdh='cd $WIN'
@@ -59,4 +60,3 @@ touch $HOME/.vimbuffer
 function search() {
     grep -Ril "$@" .
 }
-
