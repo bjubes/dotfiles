@@ -1,1 +1,7 @@
 # linux only zshrc
+
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias xclip=xclip -selection clipboard
+
+xdg-mime default vim.desktop text/plain
+
