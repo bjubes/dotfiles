@@ -9,8 +9,8 @@ if [[ "$(uname -r | grep -c microsoft)" -eq "1" ]]; then
 fi
 
 # linux-only logic
-if [[ "$(uname -r | grep -c linux)" -eq "1" ]]; then
-    . $HOME/.zshrc_linux
+if [[ "$(uname -v | grep -c Ubuntu)" -eq "1" ]]; then
+    . $HOME/.zshrc_ubuntu
 fi
 
 # go
@@ -48,6 +48,9 @@ alias osl='docker-compose -f local.yml run --rm django'
 alias oslman='docker-compose -f local.yml run --rm django python manage.py'
 alias oslup='docker-compose -f local.yml up'
 alias lint='pre-commit run --show-diff-on-failure --color=always --all-files'
+
+# work
+alias dsql='docker-compose exec postgres psql -U postgres'
 
 # create copy paste file used in .vimrc
 touch $HOME/.vimbuffer
