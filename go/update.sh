@@ -25,7 +25,7 @@ wget $dlURL
 rm -rf /usr/local/go
 
 # extract new version
-sudo tar -C /usr/local -xzf "go$VER.linux-amd64.tar.gz"
+sudo tar -C /usr/local -xzf $FILE 
 
 # cleaup
 rm $FILE
