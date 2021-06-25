@@ -51,6 +51,8 @@ alias lint='pre-commit run --show-diff-on-failure --color=always --all-files'
 
 # work
 alias dsql='docker-compose exec postgres psql -U postgres'
+alias makeh='clear && make 2>&1 | head'
+alias make="make -j 8"
 
 # create copy paste file used in .vimrc
 touch $HOME/.vimbuffer

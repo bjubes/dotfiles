@@ -1,4 +1,4 @@
-# ubuntu only zshrc
+# ubuntu-desktop only zshrc
 
 alias xclip=xclip -selection clipboard
 xdg-mime default vim.desktop text/plain
