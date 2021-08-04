@@ -5,10 +5,10 @@ if [[ $# -eq 0 ]]; then
     echo "Usage: $(basename -- "$0") COMMIT_MSG"
     exit 1
 fi
-
+base_branch="develop"
 br=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
 
-git checkout master
+git checkout "$base_branch"
 git checkout -b "${br}_temp"
 git merge --squash "$br"
 git commit -am "$@"
