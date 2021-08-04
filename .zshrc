@@ -25,7 +25,9 @@ alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias dl='curl -LJO'
 
 PATH=$PATH:~/bin:~/.local/bin
-EDITOR=vim
+export EDITOR=vim
+export VISUAL=$EDITOR
+export GIT_EDITOR=$EDITOR
 
 # use ctrl+e to edit command in vim buffer
 autoload edit-command-line; zle -N edit-command-line
