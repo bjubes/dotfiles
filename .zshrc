@@ -62,3 +62,6 @@ touch $HOME/.vimbuffer
 function search() {
     grep -Ril "$@" .
 }
+function ununzip() {
+    unzip -Z -1 "$@" | xargs -I{} rm -r -v {}
+}
