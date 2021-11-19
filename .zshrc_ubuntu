@@ -4,3 +4,8 @@ alias xclip=xclip -selection clipboard
 alias open=xdg-open
 xdg-mime default vim.desktop text/plain
 
+# load work specific zshrc - not in dotfiles
+if [[ "$USER" -eq "bjubelirer" ]]; then
+    . $HOME/.zshrc_dzyne
+fi
+
