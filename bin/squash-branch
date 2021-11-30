@@ -5,7 +5,7 @@ if [[ $# -eq 0 ]]; then
     echo "Usage: $(basename -- "$0") COMMIT_MSG"
     exit 1
 fi
-base_branch="develop"
+base_branch="master"
 br=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
 
 git checkout "$base_branch"
@@ -14,6 +14,7 @@ git merge --squash "$br"
 git commit -am "$@"
 git branch -m "$br" "${br}_unsquashed"
 git branch -m "$br"
+git branch --set-upstream-to "origin/${br}"
 
 # cleanup:
-git branch -D "${br}_unsquashed"
+# git branch -D "${br}_unsquashed"
