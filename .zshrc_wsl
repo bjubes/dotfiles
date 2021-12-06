@@ -9,7 +9,3 @@ export WIN="/mnt/c/Users/brian"
 alias cdh='cd $WIN'
 alias cduas='cd /mnt/c/Users/brian/uas'
 
-# fix wsl not going to ~ on launch
-if [ "$(pwd)" = '/mnt/c/Users/brian' ]; then
-    cd ~
-fi
