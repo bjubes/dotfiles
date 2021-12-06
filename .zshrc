@@ -20,6 +20,11 @@ if [[ "$(uname -v | grep -c Ubuntu)" -eq "1" ]]; then
     . $HOME/.zshrc_ubuntu
 fi
 
+# macos-only logic
+if [[ "$(uname | grep -c Darwin)" -eq "1" ]]; then
+    . $HOME/.zshrc_macos
+fi
+
 # go
 export GOPATH=$HOME/go
 export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
@@ -71,6 +76,10 @@ function search() {
 }
 function ununzip() {
     unzip -Z -1 "$@" | xargs -I{} rm -r -v {}
+}
+
+function mergeto() {
+    git fetch . HEAD:$@
 }
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.

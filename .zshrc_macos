@@ -1,0 +1,8 @@
+# macos-desktop only zshrc
+
+alias xclip=pbcopy
+
+function docker-rs() {
+    killall Docker && open /Applications/Docker.app
+}
+
