@@ -1,17 +1,21 @@
 #!/bin/bash
 set -e
 
-if [[ $# -eq 0 ]]; then
-    echo "Usage: $(basename -- "$0") COMMIT_MSG"
+if [[ $# -lt 2 ]]; then
+    echo "Usage: $(basename -- "$0") BASE_BRANCH COMMIT_MSG"
     exit 1
 fi
-base_branch="master"
+if [[ $# -gt 2 ]]; then
+    echo "Too many arguments: COMMIT_MSG must be in quotes"
+    exit 1
+fi
+base_branch="$1"
 br=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
 
 git checkout "$base_branch"
 git checkout -b "${br}_temp"
 git merge --squash "$br"
-git commit -am "$@"
+git commit -am "$2"
 git branch -m "$br" "${br}_unsquashed"
 git branch -m "$br"
 git branch --set-upstream-to "origin/${br}"
