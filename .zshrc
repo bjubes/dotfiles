@@ -36,12 +36,13 @@ alias c=batcat
 alias s=sudo
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias dl='curl -LJO'
+alias kzoom='pgrep zoom | xargs kill -9 && nohup zoom&'
 
 PATH=$PATH:~/bin:~/.local/bin
 export EDITOR=vim
 export VISUAL=$EDITOR
 export GIT_EDITOR=$EDITOR
-export PAGER=batcat
+
 # use ctrl+e to edit command in vim buffer
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
@@ -67,7 +68,7 @@ alias lint='pre-commit run --show-diff-on-failure --color=always --all-files'
 # work
 alias dsql='docker-compose exec postgres psql -U postgres'
 alias makeh='clear && make 2>&1 | head'
-alias make="make -j 8"
+alias make="make -j$(( $(nproc) - 2))"
 
 # create copy paste file used in .vimrc
 touch $HOME/.vimbuffer
@@ -82,6 +83,8 @@ function ununzip() {
 function mergeto() {
     git fetch . HEAD:$@
 }
+
+alias gfix='git commit --amend --no-edit'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
