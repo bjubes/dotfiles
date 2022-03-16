@@ -36,7 +36,7 @@ alias c=batcat
 alias s=sudo
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias dl='curl -LJO'
-alias kzoom='pgrep zoom | xargs kill -9 && nohup zoom&'
+alias kzoom='pgrep zoom | xargs kill -9 && nohup zoom&!'
 
 PATH=$PATH:~/bin:~/.local/bin
 export EDITOR=vim
