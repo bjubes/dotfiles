@@ -2,10 +2,12 @@
 
 alias xclip='xclip -selection clipboard'
 alias open=xdg-open
-xdg-mime default vim.desktop text/plain
+
+# only run xdg-mime if its installed
+command -v xdg-mime && xdg-mime default vim.desktop text/plain
 
 # load work specific zshrc - not in dotfiles
-if [[ "$USER" -eq "bjubelirer" ]]; then
+if [[ "$USER" -eq "bjubelirer" && -f "$HOME/.zshrc_dzyne" ]]; then
     . $HOME/.zshrc_dzyne
 fi
 
