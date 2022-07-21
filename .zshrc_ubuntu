@@ -2,6 +2,7 @@
 
 alias xclip='xclip -selection clipboard'
 alias open=xdg-open
+alias snap-purge='LANG=C snap list --all | while read snapname ver rev trk pub notes; do if [[ $notes = *disabled* ]]; then sudo snap remove "$snapname" --revision="$rev"; fi; done'
 xdg-mime default vim.desktop text/plain
 
 # load work specific zshrc - not in dotfiles
