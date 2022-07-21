@@ -30,6 +30,7 @@ export GOPATH=$HOME/go
 export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 
 # aliases
+alias vim=nvim
 alias pip=pip3
 alias python=python3
 alias c=batcat
@@ -58,6 +59,11 @@ lfcd () {
     fi
 }
 bindkey -s '^o' 'lfcd\n'
+
+kport () {
+    port=":$1"
+    kill  $(lsof -t -i  $port )
+}
 
 # osler
 alias osl='docker-compose -f local.yml run --rm django'
