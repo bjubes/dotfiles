@@ -29,6 +29,11 @@ fi
 export GOPATH=$HOME/go
 export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 
+# atak
+export JAVA_HOME=/opt/jdk8u342-b07
+export PATH=$PATH:$JAVA_HOME/bin 
+export PATH=$PATH:/opt/android-studio/bin
+
 # aliases
 alias vim=nvim
 alias pip=pip3
@@ -88,6 +93,11 @@ function ununzip() {
 
 function mergeto() {
     git fetch . HEAD:$@
+}
+
+function myip() {
+    ip addr | grep "inet " | grep -v host | grep -v docker |
+    cut -f1 -d"/" | sed 's/(.*?)[0-9]//g' | awk -F ' ' '{print $2}'
 }
 
 alias gfix='git commit --amend --no-edit'
