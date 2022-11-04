@@ -5,6 +5,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+export XDG_CONFIG_HOME="$HOME/.config"
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(git gh docker docker-compose)
@@ -36,12 +37,13 @@ export PATH=$PATH:/opt/android-studio/bin
 
 # aliases
 alias vim=nvim
+alias v=nvim
 alias pip=pip3
 alias python=python3
 alias c=batcat
 alias s=sudo
-alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias dl='curl -LJO'
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias kzoom='pgrep zoom | xargs kill -9 && nohup zoom >/dev/null </dev/null 2>&1&!'
 
 PATH=$PATH:~/bin:~/.local/bin
@@ -67,7 +69,7 @@ bindkey -s '^o' 'lfcd\n'
 
 kport () {
     port=":$1"
-    kill  $(lsof -t -i  $port )
+    kill -9 $(lsof -t -i  $port )
 }
 
 # osler
