@@ -82,24 +82,34 @@ alias lint='pre-commit run --show-diff-on-failure --color=always --all-files'
 alias dsql='docker-compose exec postgres psql -U postgres'
 alias makeh='clear && make 2>&1 | head'
 alias make="make -j$(( $(nproc) - 2))"
+alias ports="ss -ltup"
 
 # create copy paste file used in .vimrc
 touch $HOME/.vimbuffer
 
-function search() {
+search() {
     grep -Ril "$@" .
 }
-function ununzip() {
+ununzip() {
     unzip -Z -1 "$@" | xargs -I{} rm -r -v {}
 }
 
-function mergeto() {
+# pull branch to latest without checking out locally
+bgpull() {
+    git fetch origin $@:$@
+}
+
+mergeto() {
     git fetch . HEAD:$@
 }
 
-function myip() {
+myip() {
     ip addr | grep "inet " | grep -v host | grep -v docker |
     cut -f1 -d"/" | sed 's/(.*?)[0-9]//g' | awk -F ' ' '{print $2}'
+}
+
+pyclean () {
+    find . -type f -name '*.py[co]' -delete -o -type d -name __pycache__ -delete
 }
 
 alias gfix='git commit --amend --no-edit'
@@ -107,3 +117,11 @@ alias gpushu='git push -u origin HEAD'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+
+# Append this line to ~/.zshrc to enable fzf keybindings for Zsh:
+source /usr/share/doc/fzf/examples/key-bindings.zsh
+
+# Append this line to ~/.zshrc to enable fuzzy auto-completion for Zsh:
+source /usr/share/doc/fzf/examples/completion.zsh
+
