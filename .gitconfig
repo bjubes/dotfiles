@@ -1,0 +1,17 @@
+[pull]
+	rebase = false
+[fetch]
+	prune = true
+[diff]
+	colorMoved = zebra
+[pager]
+	branch = false
+[user]
+	email = bjubelirer@dzynetech.com
+	name = Brian Jubelirer
+[submodule]
+	recurse = true
+[credential]
+	helper = store
+[rebase]
+	autosquash = true
