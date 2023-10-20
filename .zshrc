@@ -114,6 +114,8 @@ pyclean () {
 
 alias gfix='git commit --amend --no-edit'
 alias gpushu='git push -u origin HEAD'
+alias dps="docker ps -a --format='table {{.Names}}\t{{.Image}}\t{{.Status}}'"
+
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
