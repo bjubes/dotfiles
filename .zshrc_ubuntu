@@ -1,12 +1,13 @@
 # ubuntu-desktop only zshrc
 
 alias xclip='xclip -selection clipboard'
-alias saveclip='xclip -selection clipboard -t image/png -o > ~/Documents/Pictures/"$(date +%Y-%m-%d_%T).png"'
+alias saveclip='xclip -selection clipboard -t image/png -o > ~/Pictures/"$(date +%Y-%m-%d_%T).png"'
 alias open=xdg-open
 alias snap-purge='LANG=C snap list --all | while read snapname ver rev trk pub notes; do if [[ $notes = *disabled* ]]; then sudo snap remove "$snapname" --revision="$rev"; fi; done'
 xdg-mime default vim.desktop text/plain
 alias sound-reset='systemctl --user restart pulseaudio'
 alias mixer='pavucontrol'
+alias msync='maestral stop && maestral start && maestral status'
 
 # only run xdg-mime if its installed
 command -v xdg-mime > /dev/null && xdg-mime default vim.desktop text/plain 
