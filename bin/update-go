@@ -18,6 +18,7 @@ echo "updating from $CURRENT_VER to version $VER"
 FILE="go${VER}.linux-amd64.tar.gz"
 
 #download new version
+[ -d "$HOME/Downloads/" ] && cd $HOME/Downloads
 dlURL="https://golang.org/dl/${FILE}"
 wget $dlURL
 
