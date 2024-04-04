@@ -31,17 +31,17 @@ export GOPATH=$HOME/go
 export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 
 # atak
-export JAVA_HOME=/opt/jdk8u342-b07
+export JAVA_HOME=/opt/jdk-17.0.9+9
 export PATH=$PATH:$JAVA_HOME/bin 
 export PATH=$PATH:/opt/android-studio/bin
 
 # aliases
 alias vim=nvim
 alias v=nvim
-alias pip=pip3
 alias python=python3
 alias c=batcat
 alias s=sudo
+alias lg=lazygit
 alias dl='curl -LJO'
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias kzoom='pgrep zoom | xargs kill -9 && nohup zoom >/dev/null </dev/null 2>&1&!'
@@ -83,6 +83,12 @@ alias dsql='docker-compose exec postgres psql -U postgres'
 alias makeh='clear && make 2>&1 | head'
 alias make="make -j$(( $(nproc) - 2))"
 alias ports="ss -ltup"
+
+# use docker compose if docker-compose isn't installed
+if ! command -v docker-compose &> /dev/null
+then
+    alias docker-compose="docker compose"
+fi
 
 # create copy paste file used in .vimrc
 touch $HOME/.vimbuffer
@@ -127,3 +133,7 @@ source /usr/share/doc/fzf/examples/key-bindings.zsh
 # Append this line to ~/.zshrc to enable fuzzy auto-completion for Zsh:
 source /usr/share/doc/fzf/examples/completion.zsh
 
+
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
