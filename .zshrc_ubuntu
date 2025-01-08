@@ -8,6 +8,7 @@ xdg-mime default vim.desktop text/plain
 alias sound-reset='systemctl --user restart pulseaudio'
 alias mixer='pavucontrol'
 alias msync='maestral stop && maestral start && maestral status'
+alias make="make -j$(( $(nproc) - 2))"
 
 # only run xdg-mime if its installed
 command -v xdg-mime > /dev/null && xdg-mime default vim.desktop text/plain 
@@ -17,3 +18,8 @@ if [[ "$USER" -eq "bjubelirer" && -f "$HOME/.zshrc_dzyne" ]]; then
     . $HOME/.zshrc_dzyne
 fi
 
+# Append this line to ~/.zshrc to enable fzf keybindings for Zsh:
+source /usr/share/doc/fzf/examples/key-bindings.zsh
+
+# Append this line to ~/.zshrc to enable fuzzy auto-completion for Zsh:
+source /usr/share/doc/fzf/examples/completion.zsh

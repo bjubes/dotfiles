@@ -81,7 +81,6 @@ alias lint='pre-commit run --show-diff-on-failure --color=always --all-files'
 # work
 alias dsql='docker-compose exec postgres psql -U postgres'
 alias makeh='clear && make 2>&1 | head'
-alias make="make -j$(( $(nproc) - 2))"
 alias ports="ss -ltup"
 
 # use docker compose if docker-compose isn't installed
@@ -125,13 +124,6 @@ alias dps="docker ps -a --format='table {{.Names}}\t{{.Image}}\t{{.Status}}'"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-
-# Append this line to ~/.zshrc to enable fzf keybindings for Zsh:
-source /usr/share/doc/fzf/examples/key-bindings.zsh
-
-# Append this line to ~/.zshrc to enable fuzzy auto-completion for Zsh:
-source /usr/share/doc/fzf/examples/completion.zsh
 
 
 export NVM_DIR="$HOME/.config/nvm"
