@@ -31,8 +31,8 @@ export GOPATH=$HOME/go
 export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 
 # atak
-export JAVA_HOME=/opt/jdk-17.0.9+9
-export PATH=$PATH:$JAVA_HOME/bin 
+#export JAVA_HOME=/opt/jdk-17.0.9+9
+#export PATH=$PATH:$JAVA_HOME/bin 
 export PATH=$PATH:/opt/android-studio/bin
 
 # aliases
