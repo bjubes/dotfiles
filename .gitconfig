@@ -1,9 +1,28 @@
+# https://blog.gitbutler.com/how-git-core-devs-configure-git/
+[column]
+    ui = auto
+[branch]
+    sort = -committerdate
+[tag]
+	sort = version:refname
+[init]
+    defaultBranch = master
 [pull]
 	rebase = false
-[fetch]
-	prune = true
 [diff]
+    algorithm = histogram
 	colorMoved = zebra
+    #colorMoved = plain
+    mnemonicPrefix = true
+    renames = true
+[push]
+    default = simple
+    autoSetupRemote = true
+    followTags = true
+[fetch]
+    prune = true
+    pruneTags = true
+    all = true
 [pager]
 	branch = false
 [user]
@@ -14,7 +33,9 @@
 [credential]
 	helper = store
 [rebase]
-	autosquash = true
+	autoSquash = true
+	autoStash = true
+	updateRefs = true
 [filter "lfs"]
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
